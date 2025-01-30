@@ -1,10 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        /* Title Bar */
+        .title-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 10px 20px;
+            color: black;
+            border-bottom: 3px solid transparent;
+        }
+
+        .divider {
+            display: flex;
+            height: 5px;
+            width: 100%;
+        }
+        
+        .divider div {
+            flex: 1;
+            height: 100%;
+        }
+
+        .divider-top div:nth-child(1) { background-color: #f8f9fa; }
+        .divider-top div:nth-child(2) { background-color: #bbdefb; }
+        .divider-top div:nth-child(3) { background-color: #90caf9; }
+        .divider-top div:nth-child(4) { background-color: #64b5f6; }
+        .divider-top div:nth-child(5) { background-color: #42a5f5; }
+        
+        .divider-bottom div:nth-child(5) { background-color: #f8f9fa; }
+        .divider-bottom div:nth-child(4) { background-color: #bbdefb; }
+        .divider-bottom div:nth-child(3) { background-color: #90caf9; }
+        .divider-bottom div:nth-child(2) { background-color: #64b5f6; }
+        .divider-bottom div:nth-child(1) { background-color: #42a5f5; }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 0;
+        }
+
+        .title-text {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .icon-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #00b4d8;
+            color: white;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            margin: 0 5px;
+        }
+
+        .tab:hover, .tab.active {
+            background-color: #0077b6;
+        }
+
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px;
+            border-top: 3px solid transparent;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page!</h1>
-    <p>This is my personal website hosted on GitHub Pages.</p>
+    <div class="title-bar">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="title-text">My Personal Website</div>
+        <button class="icon-button"><img src="icon1.png" alt="Link 1"></button>
+        <button class="icon-button"><img src="icon2.png" alt="Link 2"></button>
+    </div>
+    <div class="divider divider-top">
+        <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div class="tabs">
+        <button class="tab active" onclick="showTab(0)">Tab 1</button>
+        <button class="tab" onclick="showTab(1)">Tab 2</button>
+        <button class="tab" onclick="showTab(2)">Tab 3</button>
+        <button class="tab" onclick="showTab(3)">Tab 4</button>
+    </div>
+    <div id="content-0" class="content active">Content for Tab 1</div>
+    <div id="content-1" class="content">Content for Tab 2</div>
+    <div id="content-2" class="content">Content for Tab 3</div>
+    <div id="content-3" class="content">Content for Tab 4</div>
+    <div class="divider divider-bottom">
+        <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div class="footer">
+        Contact: email@example.com | Socials: @myhandle
+    </div>
+    <script>
+        function showTab(index) {
+            let tabs = document.querySelectorAll(".tab");
+            let contents = document.querySelectorAll(".content");
+            
+            tabs.forEach(tab => tab.classList.remove("active"));
+            contents.forEach(content => content.classList.remove("active"));
+            
+            tabs[index].classList.add("active");
+            contents[index].classList.add("active");
+        }
+    </script>
 </body>
 </html>
